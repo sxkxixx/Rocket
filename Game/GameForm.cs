@@ -7,37 +7,32 @@ namespace Game
 {
     public partial class GameForm : Form
     {
-        private readonly Timer timer;
-        private readonly Image ufo;
-        private readonly Image rocket;
-        private readonly Image rocketShot;
-        private readonly Image ufoShot;
-        private readonly Image firstAsteroid;
-        private readonly Image secondAsteroid;
-        private readonly Image background;
-        private readonly Image image;
-        private readonly Size space = new Size(1280, 960);
+        private readonly Image Rocket;
+        private readonly Image Ufo;
+        private readonly Image Shot;
+        private readonly Image Asteroid;
+        private readonly Image Background;
+        private readonly Image chest;
+        public readonly Size spaceSize = new Size(1280, 960);
         
-        private readonly string text;
+        public readonly Timer timer;
 
-        private bool left;
-        private bool right;
-        private bool forward;
-        
         public GameForm()
         {
-            timer = new Timer();
-            ufo = Image.FromFile("images/UFO.png");
-            rocket = Image.FromFile("images/rocket.png");
-            rocketShot = Image.FromFile("images/rocketShot.png");
-            ufoShot = Image.FromFile("images/UfoShot.png");
-            firstAsteroid = Image.FromFile("images/asteroid1.png");
-            secondAsteroid = Image.FromFile("images/asteroid2.png");
-            background = Image.FromFile("images/background.png");
-            text = "Rocket";
-            image = new Bitmap(space.Width, space.Height, PixelFormat.Format32bppArgb);
-            
-            InitializeComponent();
+            Rocket = Image.FromFile("images/rocket.png");
+            Ufo = Image.FromFile("images/UFO.png");
+            Shot = Image.FromFile("image/shot.png");
+            Asteroid = Image.FromFile("image/asteroid.png");
+            Background = Image.FromFile("image/background.png");
+            chest = Image.FromFile("images/chest.png");
+        }
+
+        private void TimerTick(object sender, EventArgs e)
+        {		
+            MoveRocket();
+            MoveOpponent();
+            Invalidate();
+            Update();
         }
 
         protected override void OnLoad(EventArgs e)
@@ -45,31 +40,26 @@ namespace Game
             base.OnLoad(e);
             DoubleBuffered = true;
             WindowState = FormWindowState.Maximized;
-            Text = text;
-        }
-
-        public void TimerTick(object sender, EventArgs e)
-        {
-            Invalidate();
-            Update();
-        }
-
-        public void HandleKey(Keys key, bool move)
-        {
-            if (key is Keys.A or Keys.Left) left = move;
-            if (key is Keys.D or Keys.Right) right = move;
-            if (key is Keys.W or Keys.Up) forward = move;
-        }
-        
-        protected override void OnKeyUp(KeyEventArgs e)
-        {
-            base.OnKeyDown(e);
-            HandleKey(e.KeyCode, false);
         }
 
         protected override void OnPaint(PaintEventArgs e)
         {
-            e.Graphics.FillRectangle(Brushes.Bisque, ClientRectangle);
+            base.OnPaint(e);
+        }
+
+        protected override void OnKeyDown(KeyEventArgs e)
+        {
+            base.OnKeyDown(e);
+        }
+
+        private void MoveRocket()
+        {
+            
+        }
+
+        private void MoveOpponent()
+        {
+            
         }
     }
 }

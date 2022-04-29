@@ -2,11 +2,12 @@
 {
     public class Asteroid
     {
-        public readonly Vector Location;
+        public readonly Vector Position;
+        public static readonly int HealthPoint = 20;
 
         public Asteroid(Vector location)
         {
-            Location = location;
+            Position = location;
         }
     }
 }

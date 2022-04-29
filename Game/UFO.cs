@@ -2,17 +2,19 @@
 {
     public class Ufo
     {
-        public readonly Vector Location;
-        public readonly int HealthPoint;
+        public readonly Vector Position;
+        public readonly Vector Velocity;
+        public readonly double Direction;
+        public readonly int HealthPoint = 50;
+        private readonly int Bullet = int.MaxValue;
         
         public bool IsDeath => HealthPoint == 0;
-        
-        public Ufo(Vector location, int healthPoint)
+
+        public Ufo(Vector position, Vector velocity, double direction)
         {
-            Location = location;
-            HealthPoint = healthPoint;
+            Position = position;
+            Velocity = velocity;
+            Direction = direction;
         }
-        
-        
     }
 }

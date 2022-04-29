@@ -4,13 +4,15 @@ namespace Game
 {
     public class RocketShot
     {
-        public readonly Vector Location;
+        public readonly Vector Position;
+        public readonly double MovingDirection;
         public readonly int Power;
 
-        public RocketShot(Vector location, int power)
+        public RocketShot(Vector position, int power, double movingDirection)
         {
-            Location = location;
+            Position = position;
             Power = power;
+            MovingDirection = movingDirection;
         }
     }
 

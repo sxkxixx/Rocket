@@ -14,8 +14,8 @@ namespace Game
         {
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
-            /*var game = new GameModel(5);
-            Application.Run(new MyForm(game) { ClientSize = new Size(300, 300) });*/
+            var game = new GameForm();
+            Application.Run(game);
         }
     }
 }
